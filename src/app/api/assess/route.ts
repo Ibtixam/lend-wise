@@ -4,7 +4,7 @@ import { buildAssessmentPrompt } from "@/lib/assessment-prompt";
 import { getMockAssessment } from "@/lib/mock-assessment";
 import type { AssessmentResult, LendingFormData, Verdict } from "@/lib/types";
 
-const DEFAULT_GROQ_MODEL = "llama-3.3-70b-versatile";
+const DEFAULT_GROK_MODEL = "llama-3.3-70b-versatile";
 
 function parseAssessmentJson(text: string): AssessmentResult {
   const cleaned = text.replace(/```json\n?|\n?```/g, "").trim();
@@ -29,16 +29,12 @@ function parseAssessmentJson(text: string): AssessmentResult {
   };
 }
 
-function getGroqApiKey(): string | undefined {
-  return process.env.GROW_API_KEY?.trim() || process.env.GROQ_API_KEY?.trim();
+function getGrokApiKey(): string | undefined {
+  return process.env.GROK_API_KEY?.trim();
 }
 
-function getGroqModel(): string {
-  return (
-    process.env.GROW_MODEL?.trim() ||
-    process.env.GROQ_MODEL?.trim() ||
-    DEFAULT_GROQ_MODEL
-  );
+function getGrokModel(): string {
+  return process.env.GROK_MODEL?.trim() || DEFAULT_GROK_MODEL;
 }
 
 export async function POST(request: Request) {
@@ -50,16 +46,16 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }
 
-  const apiKey = getGroqApiKey();
+  const apiKey = getGrokApiKey();
 
   if (!apiKey) {
     return NextResponse.json(getMockAssessment(body));
   }
 
   try {
-    const groq = new Groq({ apiKey });
-    const completion = await groq.chat.completions.create({
-      model: getGroqModel(),
+    const grok = new Groq({ apiKey });
+    const completion = await grok.chat.completions.create({
+      model: getGrokModel(),
       max_tokens: 1500,
       temperature: 0.6,
       messages: [
@@ -78,7 +74,7 @@ export async function POST(request: Request) {
     const result = parseAssessmentJson(text);
     return NextResponse.json(result);
   } catch (err) {
-    console.error("Groq assessment error:", err);
+    console.error("Grok assessment error:", err);
     return NextResponse.json(getMockAssessment(body));
   }
 }
