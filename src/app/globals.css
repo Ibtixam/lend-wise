@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #fafafa;
+  --gold: #c9a227;
+  --gold-bright: #dbb42e;
+  --gold-border: #8b733b;
+  --gold-active: #c5a04d;
+  --chip-selected-bg: #2a2416;
+  --surface-card: #121212;
+  --surface-chip: #161616;
+  --surface-elevated: #1a1a1a;
+  --border-subtle: #2a2a2a;
+  --shell-max: 52rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-border: var(--gold-border);
+  --color-gold-active: var(--gold-active);
+  --color-surface-card: var(--surface-card);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border-subtle: var(--border-subtle);
+  --font-sans: var(--font-geist-sans);
+
+  --animate-in: enter 0.5s ease-out;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: enter 0.5s ease-out forwards;
+}
+
+.fade-in {
+  animation-name: enter;
+}
+
+.slide-in-from-bottom-4 {
+  --tw-enter-translate-y: 1rem;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Centered page width — matches desktop mock (~832px) */
+.lendwise-shell {
+  width: 100%;
+  max-width: 36rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  padding-block: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .lendwise-shell {
+    max-width: var(--shell-max);
+    padding-inline: 1.5rem;
+    padding-block: 3.5rem;
+  }
+}
+
+/* Chip buttons — default / hover / selected (desktop mock) */
+.chip-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.375rem;
+  border-radius: 0.625rem;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--surface-chip);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.chip-btn:hover:not(.chip-btn--selected) {
+  border-color: var(--gold-border);
+  color: #ffffff;
+}
+
+.chip-btn--selected {
+  border: 1px solid var(--gold-active);
+  background-color: var(--chip-selected-bg);
+  color: var(--gold-active);
+}
+
+.chip-grid {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  gap: 0.5rem;
+}
+
+.chip-grid--3 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.chip-grid--4 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.chip-grid--5 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .chip-grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Desktop: single row per section (5 / 4 / 5) */
+@media (min-width: 768px) {
+  .chip-btn {
+    min-height: 3.25rem;
+    padding: 0.625rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25;
+  }
+
+  .chip-grid {
+    gap: 0.5rem;
+  }
+
+  .chip-grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .chip-grid--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .chip-grid--5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.chip-field--error .chip-grid {
+  outline: 1px solid rgba(248, 113, 113, 0.35);
+  outline-offset: 3px;
+  border-radius: 0.75rem;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.55;
+  }
+}
+
+.skeleton-pulse {
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
+}
