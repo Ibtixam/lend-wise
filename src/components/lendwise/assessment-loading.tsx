@@ -18,8 +18,8 @@ export function AssessmentLoading() {
       aria-label="Generating your assessment"
     >
       <div className="flex items-center justify-center gap-2 rounded-xl border border-gold/20 bg-gold/5 px-4 py-3">
-        <Sparkles className="h-5 w-5 animate-pulse text-gold" />
-        <p className="text-sm font-medium text-gold">
+        <Sparkles className="h-5 w-5 animate-pulse text-gold-text" />
+        <p className="text-sm font-medium text-gold-text">
           LendWise is analyzing your situation…
         </p>
       </div>
@@ -67,7 +67,7 @@ export function AssessmentLoading() {
         <Bone className="mt-2 h-4 max-w-[65%] w-full" />
       </section>
 
-      <p className="text-center text-xs text-zinc-600">
+      <p className="text-center text-xs text-muted-subtle">
         This usually takes a few seconds
       </p>
     </div>

@@ -290,10 +290,10 @@ export function LendWiseForm() {
                 placeholder="Any other details you'd like to share..."
                 value={form.notes}
                 onChange={(e) => update("notes", e.target.value)}
-                className="w-full resize-none rounded-lg border border-border-subtle bg-surface-elevated px-4 py-3 text-sm text-white placeholder:text-zinc-600 focus:border-gold/50 focus:outline-none focus:ring-1 focus:ring-gold/30"
+                className="w-full resize-none rounded-lg border border-border-subtle bg-surface-elevated px-4 py-3 text-sm text-white placeholder:text-muted-subtle focus:border-gold-text/50 focus:outline-none focus:ring-1 focus:ring-gold-text/30"
               />
             </div>
-            <label className="flex cursor-pointer items-start gap-2 text-sm text-zinc-400">
+            <label className="flex cursor-pointer items-start gap-2 text-sm text-muted">
               <input
                 type="checkbox"
                 checked={form.includeIslamicPerspective}
@@ -304,7 +304,7 @@ export function LendWiseForm() {
               />
               <span>
                 Include Islamic finance perspective in assessment
-                <span className="mt-0.5 block text-xs text-zinc-500">
+                <span className="mt-0.5 block text-xs text-muted-subtle">
                   Adds qard hasan and ethical lending guidance to your result.
                 </span>
               </span>
@@ -330,10 +330,10 @@ export function LendWiseForm() {
 function Footer() {
   return (
     <footer className="mt-12 space-y-1 text-center">
-      <p className="text-sm text-zinc-500">
+      <p className="text-sm text-muted">
         Made with care for the Pakistani community
       </p>
-      <p className="text-xs text-zinc-600">
+      <p className="text-xs text-muted-subtle">
         This tool provides guidance only. Always trust your judgment.
       </p>
     </footer>

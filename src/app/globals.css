@@ -7,6 +7,10 @@
   --gold-bright: #dbb42e;
   --gold-border: #8b733b;
   --gold-active: #c5a04d;
+  --gold-text: #e8d070;
+  --gold-text-strong: #f5e6a8;
+  --muted: #a3a3a3;
+  --muted-subtle: #8a8a8a;
   --chip-selected-bg: #2a2416;
   --surface-card: #121212;
   --surface-chip: #161616;
@@ -22,6 +26,10 @@
   --color-gold-bright: var(--gold-bright);
   --color-gold-border: var(--gold-border);
   --color-gold-active: var(--gold-active);
+  --color-gold-text: var(--gold-text);
+  --color-gold-text-strong: var(--gold-text-strong);
+  --color-muted: var(--muted);
+  --color-muted-subtle: var(--muted-subtle);
   --color-surface-card: var(--surface-card);
   --color-surface-elevated: var(--surface-elevated);
   --color-border-subtle: var(--border-subtle);
@@ -115,7 +123,7 @@ body {
 .chip-btn--selected {
   border: 1px solid var(--gold-active);
   background-color: var(--chip-selected-bg);
-  color: var(--gold-active);
+  color: var(--gold-text-strong);
 }
 
 .chip-grid {

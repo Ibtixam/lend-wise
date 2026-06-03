@@ -18,10 +18,10 @@ export function AmountInput({
   className = "",
 }: AmountInputProps) {
   const base =
-    "w-full rounded-lg border bg-surface-elevated px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-1";
+    "w-full rounded-lg border bg-surface-elevated px-4 py-3 text-white placeholder:text-muted-subtle focus:outline-none focus:ring-1";
   const state = error
     ? "border-red-400/50 focus:border-red-400 focus:ring-red-400/30"
-    : "border-border-subtle focus:border-gold/50 focus:ring-gold/30";
+    : "border-border-subtle focus:border-gold-text/50 focus:ring-gold-text/30";
 
   return (
     <input

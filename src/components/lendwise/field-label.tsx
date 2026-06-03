@@ -22,11 +22,11 @@ export function FieldLabel({
       <div className="flex flex-wrap items-center gap-1.5">
         <label
           htmlFor={htmlFor}
-          className={`text-sm font-medium ${error ? "text-red-300" : "text-zinc-300"}`}
+          className={`text-sm font-medium ${error ? "text-red-300" : "text-muted"}`}
         >
           {label}
           {optional && (
-            <span className="ml-1 font-normal text-zinc-500">(Optional)</span>
+            <span className="ml-1 font-normal text-muted-subtle">(Optional)</span>
           )}
         </label>
         {hint && <FieldHint text={hint} label={label} />}
@@ -49,7 +49,7 @@ function FieldHint({ text, label }: { text: string; label: string }) {
       <button
         type="button"
         aria-describedby={id}
-        className="rounded-full p-0.5 text-zinc-500 transition-colors hover:text-gold focus:outline-none focus-visible:text-gold focus-visible:ring-1 focus-visible:ring-gold/50"
+        className="rounded-full p-0.5 text-muted transition-colors hover:text-gold-text focus:outline-none focus-visible:text-gold-text focus-visible:ring-1 focus-visible:ring-gold/50"
       >
         <CircleHelp className="h-3.5 w-3.5" aria-hidden />
         <span className="sr-only">Help: {label}</span>

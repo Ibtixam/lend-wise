@@ -12,10 +12,10 @@ export function FormStepProgress() {
   return (
     <div className="sticky top-0 z-30 -mx-1 mb-5 rounded-xl border border-border-subtle bg-black/90 px-4 py-3 backdrop-blur-md">
       <div className="mb-2 flex items-center justify-between gap-2">
-        <p className="text-xs font-medium text-zinc-400">
+        <p className="text-xs font-medium text-muted">
           Step {activeStep} of 3
         </p>
-        <p className="truncate text-xs font-semibold text-gold">{current.label}</p>
+        <p className="truncate text-xs font-semibold text-gold-text">{current.label}</p>
       </div>
       <div
         className="h-1.5 overflow-hidden rounded-full bg-zinc-800"
@@ -30,15 +30,15 @@ export function FormStepProgress() {
           style={{ width: `${progress}%` }}
         />
       </div>
-      <div className="mt-2 flex justify-between text-[10px] text-zinc-600">
+      <div className="mt-2 flex justify-between text-xs text-muted-subtle">
         {steps.map((step) => (
           <span
             key={step.id}
             className={
               step.id === activeStep
-                ? "font-medium text-gold"
+                ? "font-medium text-gold-text"
                 : step.id < activeStep
-                  ? "text-zinc-500"
+                  ? "text-muted"
                   : ""
             }
           >

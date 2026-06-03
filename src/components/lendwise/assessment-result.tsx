@@ -126,7 +126,7 @@ export function AssessmentResultPanel({
                 </p>
               </div>
               <div className="shrink-0 text-center sm:text-right">
-                <p className="text-xs uppercase tracking-wider text-zinc-500">
+                <p className="text-xs uppercase tracking-wider text-muted">
                   Trust & Safety
                 </p>
                 <p
@@ -136,7 +136,7 @@ export function AssessmentResultPanel({
                 >
                   {animatedScore}
                 </p>
-                <p className="text-sm text-zinc-500">out of 100</p>
+                <p className="text-sm text-muted">out of 100</p>
               </div>
             </div>
           </div>
@@ -180,7 +180,7 @@ export function AssessmentResultPanel({
         </div>
 
         <section className="rounded-2xl border border-gold/20 bg-gold/5 p-6 sm:p-8">
-          <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold text-gold">
+          <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold text-gold-text">
             <Sparkles className="h-4 w-4" />
             Practical Advice
           </h3>
@@ -191,7 +191,7 @@ export function AssessmentResultPanel({
 
         {(result.islamicPerspective || showIslamic) && (
           <section className="animate-in fade-in rounded-2xl border border-border-subtle bg-surface-card p-6 duration-300">
-            <h3 className="mb-3 text-sm font-semibold text-gold">
+            <h3 className="mb-3 text-sm font-semibold text-gold-text">
               Islamic Finance Perspective
             </h3>
             <p className="text-sm leading-relaxed text-zinc-400">
@@ -224,7 +224,7 @@ export function AssessmentResultPanel({
         <button
           type="button"
           onClick={() => openWhatsAppShare(shareText)}
-          className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 px-4 py-2.5 text-sm font-medium text-[#25D366] transition-colors hover:bg-[#25D366]/20 sm:flex-none sm:min-w-[160px]"
+          className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border border-[#4ade80]/40 bg-[#4ade80]/10 px-4 py-2.5 text-sm font-medium text-[#4ade80] transition-colors hover:bg-[#4ade80]/20 sm:flex-none sm:min-w-[160px]"
         >
           <Share2 className="h-4 w-4" />
           Share on WhatsApp
@@ -232,7 +232,7 @@ export function AssessmentResultPanel({
       </div>
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <label className="flex cursor-pointer items-center gap-2 text-sm text-zinc-400">
+        <label className="flex cursor-pointer items-center gap-2 text-sm text-muted">
           <input
             type="checkbox"
             checked={showIslamic}
