@@ -19,25 +19,29 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-### Grok AI setup (optional)
+### Environment (`.env` only)
 
-Copy `.env.example` to `.env.local` (or use `.env`) and add your [Groq](https://console.groq.com/keys) key:
+Project root mein sirf **`.env`** use karo — `.env.local` ya `.env.example` ki zaroorat nahi. File git mein commit nahi hoti (`.gitignore`).
 
 ```bash
+# Groq — https://console.groq.com/keys
 GROK_API_KEY=gsk_...
+# GROK_MODEL=llama-3.3-70b-versatile
+
+# Production URL (sitemap / robots)
+NEXT_PUBLIC_SITE_URL=https://your-domain.vercel.app
+
+# AdSense slots (optional — AdSense dashboard se)
+NEXT_PUBLIC_ADSENSE_SLOT_FORM=
+NEXT_PUBLIC_ADSENSE_SLOT_FORM_BOTTOM=
+NEXT_PUBLIC_ADSENSE_SLOT_RESULT=
 ```
 
-Optional model override:
-
-```bash
-GROK_MODEL=llama-3.3-70b-versatile
-```
-
-Without `GROK_API_KEY`, the app uses a built-in demo assessment so you can test the UI.
+`GROK_API_KEY` ke bina app demo assessment use karti hai. AdSense script `layout.tsx` se load hoti hai; khali slot IDs par ad placeholders hide rehte hain. `public/ads.txt` verification ke liye hai.
 
 ## Deploy
 
-Deploy to [Vercel](https://vercel.com) and set `GROK_API_KEY` in project environment variables.
+[Vercel](https://vercel.com) par wahi variable names set karo (UI env vars = local `.env` keys). Redeploy ke baad production par apply honge.
 
 ## Stack
 

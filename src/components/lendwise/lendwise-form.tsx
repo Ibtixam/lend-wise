@@ -20,6 +20,8 @@ import { FieldLabel } from "./field-label";
 import { LendWiseHeader } from "./header";
 import { SectionCard } from "./section-card";
 import { ValidationSummary } from "./validation-summary";
+import { AdSlot } from "@/components/adsense/ad-slot";
+import { ADSENSE_SLOTS } from "@/lib/adsense";
 import {
   approachOptions,
   comfortOptions,
@@ -125,6 +127,7 @@ export function LendWiseForm() {
     return (
       <div className="lendwise-shell">
         <LendWiseHeader />
+        <AdSlot slotId={ADSENSE_SLOTS.result} format="horizontal" />
         <div
           id="lendwise-assessment-result"
           ref={resultAnchorRef}
@@ -146,6 +149,7 @@ export function LendWiseForm() {
   return (
     <div className="lendwise-shell">
       <LendWiseHeader />
+      <AdSlot slotId={ADSENSE_SLOTS.formTop} format="horizontal" />
 
       {loading ? (
         <AssessmentLoading />
@@ -322,6 +326,7 @@ export function LendWiseForm() {
         </form>
       )}
 
+      <AdSlot slotId={ADSENSE_SLOTS.formBottom} format="horizontal" />
       <Footer />
     </div>
   );

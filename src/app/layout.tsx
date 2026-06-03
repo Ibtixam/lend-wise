@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import { AdSenseScript } from "@/components/adsense/adsense-script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -25,6 +26,9 @@ export default function RootLayout({
       className={`${geistSans.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <AdSenseScript />
+      </head>
       <body
         className={`${geistSans.className} min-h-full flex flex-col font-sans`}
         suppressHydrationWarning
